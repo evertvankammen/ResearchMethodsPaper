@@ -4,7 +4,7 @@
 Food delivery companies, like Uber Eats and Thuisbezorgd.nl, offer a service where customers can order food from restaurants and get the meal delivered at home.
 These companies get a fee per delivery and pay deliverers an hourly wage and/or pay them per delivery.
 
-E.g., Uber Eats ~\footnote{\url{https://merchants.ubereats.com/gb/en/pricing/}} charges 30\% of the total value of an ordered meal to be paid by the restaurant.
+E.g., Uber Eats~\footnote{\url{https://merchants.ubereats.com/gb/en/pricing/}} charges 30\% of the total value of an ordered meal to be paid by the restaurant.
 Deliverers get paid per delivery (this is not true in all countries) this consists of a base pay and an optional tip from the customer.
 Drivers may decide to take an order or not, they are seen as independent contractors.
 
@@ -22,8 +22,11 @@ The scenarios differ in how deliverers are treated: as independent contractors w
 deliverers hired as employees where orders are distributed among available deliverers.
 In the context of these scenarios the profit of the company will be calculated, also the number of participating restaurants, deliverers and customers will analyse.
 
-As the research budget is not large enough to try this in the real world a model will be build that will run some simulations.
-A model will also, like in a laboratory setting, include only properties we are interested in and exclude elements like e.g., weather and physical conditions of deliverers.
+This is an economic problem that has both micro and macroeconomic facets.
+Microeconomic as it deals with agents that make decisions, e.g., hire deliverers, maximise the delivery companies profit, order food, become a deliverer or deside to stop being a deliverer.
+Macroeconomics, because there is a labour market, i.e., the deliverers.
+
+A model will, like in a laboratory setting, include only properties we are interested in and exclude elements like e.g., weather and physical conditions of deliverers.
 The tool for building the model is: NetLogo ~\cite{NetLogo2024}.
 This is a multi-agent programmable modeling environment.
 This environment has been used to create models for many sciences concerning multi-agents (from how viruses spread to how agents act in game theory~\cite{r2019agent}).
@@ -35,34 +38,34 @@ The model consists riders, vendors and customers.
 The world consists of a 2-dimensional grid where riders have to pick up food from vendors and deliver it to customers.
 This project also mentioned some real world rules the 3 types of agents possess.
 
-Another use of NetLogo is ~\cite{chella2023quantum} where agents, i.e., in this case a swarm of robots, collectively have to find a shortest path.
-This could also be used by the food delivery environment.
-
 In another study ~\cite{antelmi2024reliable} NetLogo is compared to other ABM systems and integrations with other programming languages are analysed.
 
-
-
 \subsection{Research goals}
+The main research goal is to create an Agent Based Model to compare two deliverer employment scenarios in the food delivery industry.
 
-The main research goal for this research is to create an Agent Based model to compare several deliverer employment scenarios  in the food delivery industry.
 The two main scenarios of interest are:
-    - where the deliverers are hired as employees
-    - versus a scenario where deliverers are independent contractors and get paid per delivery
+\begin{itemize}
+    \item one, where the deliverers are hired as employees
+    \item versus a scenario where deliverers are independent contractors and get paid per delivery
+\end{itemize}
 
-This model is of the Agent Based type.
+During the model building and design, new-found insights will be used in deciding which variables and, if needed, which economic theories to use, and adjust the model as needed.
+
+This first part of the model will be used to find a baseline and will be used to test the model.
+This model is the simpler one, at start the certain variables to be used are the number of deliverers and the strategy for delivery distribution.
+
+The second part is based on the first, the main-difference is that the delivers are not hired but paid per delivery, if they make enough money they stay otherwise they stop.
+Interesting variables are: the amount paid per delivery, the wage they could earn in a steady job (like in te first part) and the distribution strategy of deliveries.
+
+Thus, the research goals are:
+\begin{itemize}
+ \item \textbf{Building the above-mentioned model in NetLogo, creating it as a highly abstracted but still believable world.}
+ \item \textbf{Finding how the profit for a delivery company varies when using independent contractors versus hiring deliverers as employees.}
+\end{itemize}
+
+Answer will be of the kind:
+
+time series: profits over time, averages of multiple runs
 
 
-\todo[inline]{Get info about ABM \& author.}
-
-\cite{hamill2016agent}
-
-
-
-
-\textbf{How does the profit for delivery companies vary when using independent contractors versus hiring deliverers as employees with an hourly wage? }
-
-An instrument will be built in the form of an Agent Based Model.
-Calling it an instrument does not mean it is not an important deliverable, as most time and energy will be spent in creating it.
-
-Thus, the second goal of the research is: building an Agent Based Model (ABM) that reflect a world where 3 types of agents exist: restaurants, customers and deliverers.
-
+\todo[inline]{Write more about this \& author.}
