@@ -1,4 +1,86 @@
-\section{Results}
+\section{Artefact}
+
+The conceptional model has 3 types of agents:
+
+-deliverers \\
+-restaurants \\
+-customers \\
+
+There is one orchestrator, the delivery company, offers a website where customers can order,
+restaurants pay the company a percentage of the delivery, they also offer means for the deliverers to
+find deliveries and the shortest route.
+
+Everything works on ticks of the clock, during 1 tick all agents execute one behaviour rule.
+The order of execution among agents of one type is arbitrary.
+This is interleaved execution, no parallelism.
+
+%In the real world when ordering food, a customer will use the website from the delivery company to find a restaurant and place an order.
+%The restaurant will take the order, the app
+% Short telling how it works in the real world, Youtube
+
+deliverers:
+Start number can be set.
+The deliverers get
+
+
+restaurants:
+the start number can be set, are placed at random
+accept any orders, are open all the time,
+prepare meals, the preparation time can be set,
+after accepting a deliverer is asked.
+when the meal is ready it can be picket up.
+meals have properties, stage: preparation , waiting, on-route, delivered, discarded
+A meal is only fresh for a time period.
+If not picked up it wil be discarded.
+Restaurants will leave the system if they have not enough orders.
+
+customers:
+order distribution, peek ours breakfast, lunch and  diner, once a week.
+order from any restaurant they have no bad experience with
+the price distribution, average can be set
+they remember bad experiences for a certain time.
+If delivered stale the customer is not satisfied and will not order from the restaurant also
+it will order less food per week.
+
+
+
+
+
+
+
+\begin{itemize}
+    \item   The world consists op a grid of squares, some squares will be blocks of buildings and others represent the streets.
+    \item   On this grid some predetermined restaurants and customers exist.
+    \item   Customers will order food at a restaurant, the restaurant will prepare the food en will ask for a deliverer.
+    \item   A deliverer will claim the delivery, move to the restaurant, pick the food up and move to the customer.
+    \item   Agents may leave the world, i.e.,choose another delivery company, when unhappy.
+    \item   Unhappiness will occur:
+    \begin{itemize}
+        \item   for customers when the food is not or too late delivered,
+        \item   for restaurants when the food is not picked up or no orders are being placed,
+        \item   for deliverers when they don't make any money.
+    \end{itemize}
+    \item    Calculating the profit for the delivery company.
+    \item    The simulation consists of discreet steps, in which all agents simultaneous can do one thing.
+    Some examples are:
+    \begin{itemize}
+        \item  move to the next square
+        \item  place an order at a restaurant
+        \item  do nothing
+        \item  decide to take an order
+    \end{itemize}
+    \item   Behavior of the agents is rule based, these have to be programmed.
+\end{itemize}
+
+
+The environment where multiple agents act is called a multi-agent system end the problem is called a multi-agent planning problem (from~\cite{russell2016artificial}).
+The research problem is actually a comparison between a system where there is one decision maker (the company assigns delivery jobs) and a system where each deliverer decide for its self (multiple decision makers).
+This research will not be of a thoroughly theoretical nature though, its more of an exploratory/explanatory nature, see what happens under some conditions and explain the correlation.
+
+
+
+
+\section{Results of simulations}
 
 
 Consumers order meals from restaurants they like, if a meal is delivered cold they dislike the restaurant.
