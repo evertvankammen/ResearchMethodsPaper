@@ -3,6 +3,7 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 import numpy as np
 
+
 def get_chance_minute(x):
     if (7 * 60) <= x < (8 * 60):
         return 2 / (24 * 60)
@@ -15,12 +16,13 @@ def get_chance_minute(x):
 
     return 13 / (24 * 20 * 60)
 
+
 def get_data_frame():
     minutes = range(0, 24 * 60)
     time = []
     p = []
     for t in minutes:
-        p.append(get_chance_minute(t)/7)
+        p.append(get_chance_minute(t) / 7)
         time.append(t)
 
     print(sum(p))
@@ -50,5 +52,6 @@ def print_food_ordering():
     plt.show()
     fig = plot.get_figure()
     fig.savefig("food_ordering_distribution.png")
+
 
 print_food_ordering()
