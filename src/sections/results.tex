@@ -136,19 +136,23 @@ The agents can be seen in figure~\ref{fig:agents}.
 \end{figure}
 
 In NetLogo, everything works on ticks, during 1 tick all code in the go procedure is executed.
-During programming the programmer must deside what to do in that tick.
-This makes it difficult to program future behaviour.
+During programming the programmer must deside what to do and not to do in that tick.
+And be sure that each agents does only 1 thing in a tick.
 
-The order of execution of agents of one kind is arbitrary.
+In one tick all behavior of one kind agents is executed in series.
+The order of these series is important.
+
+This system makes it difficult to program future behaviour as each agent deside only its behavior of one tick at a time.
+E.g., moving towards a restaurant is to move to an allowed patch that minimizes the distance to that restaurant.
 
 The program is available inside a git repository available at GitHub~\footnote{\url{https://github.com/evertvankammen/FooddeliveryNetlogo}}
 This repository also contains the Python code to automate running the model with different parameters.
 
 \section{Results of simulations}\label{sec:results-of-simulations}
 Consumers order meals from restaurants they like, if a meal is delivered cold they dislike the restaurant.
-If they dont like the restaurant they will not place any orders anymore at that restaurant.
+If they don't like the restaurant they will not place any orders anymore at that restaurant.
 
-Restaurants create meals, if they dont get any orders for some time they quit.
+Restaurants create meals, if they don't get any orders for some time they quit.
 
 The delivery provider make money for each order placed via their system, at the end they must have enough deliverers so that
 customers keep ordering.
