@@ -9,12 +9,12 @@ def get_chance_minute(x):
         return 2 / (24 * 60)
 
     if (12 * 60) <= x < (13 * 60):
-        return 2 / (24 * 60)
+        return 4 / (24 * 60)
 
     if (18 * 60) <= x < (20 * 60):
-        return 7 / (24 * 120)
+        return 12 / (24 * 120)
 
-    return 13 / (24 * 20 * 60)
+    return 6 / (24 * 20 * 60)
 
 
 def get_data_frame():
@@ -39,7 +39,7 @@ def print_food_ordering():
     sns.set_context("paper", rc={"grid.linewidth": 0.6})
     plot = sns.lineplot(data=df, x="time", y="p")
     plot.set(xlabel="time of day", ylabel="probability of ordering food per minute")
-    plt.yticks(np.arange(0, 0.0005, step=0.00005))
+    plt.yticks(np.arange(0, 0.0007, step=0.00005))
     plt.xticks(np.arange(0, 24 * 60 + 1, step=120))
 
     x_labels = []

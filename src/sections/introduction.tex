@@ -1,10 +1,10 @@
 
-\section{Introduction}
+\section{Introduction}\label{sec:introduction}
 
 Food delivery companies, like Uber Eats and Just Eat Takeaway, offer a service where customers can order food from restaurants and get the meal delivered at home.
 These companies get a fee per delivery and pay deliverers an hourly wage and/or pay them per delivery.
 
-E.g., Uber Eats~\footnote{\url{https://merchants.ubereats.com/gb/en/pricing/}} charges 30\% of the total value of an ordered meal to be paid by the restaurant.
+E.g., Uber Eats~\footnote{\url{merchants.ubereats.com/gb/en/pricing/}} charges 30\% of the total value of an ordered meal to be paid by the restaurant.
 Deliverers get paid per delivery (this is not true in all countries) this consists of a base pay and an optional tip from the customer.
 Drivers may decide to take an order or not, they are seen as independent contractors.
 
@@ -19,46 +19,62 @@ This system may have advantages for the deliverers too, some may make more money
 But, if deliverers don't make enough money they may quit and thus fewer deliveries can be made leading to lesser profits for the delivery companies.
 
 In this research project different scenarios are simulated where deliverers deliver ordered meals to customers.
-The scenarios differ in how deliverers are treated: as independent contractors who get paid per delivery and thus may decide to take an order or not versus
-deliverers hired as employees where orders are distributed among available deliverers.
-In the context of these scenarios the profit of the company will be calculated, also the number of participating restaurants, deliverers and customers will analyse.
+The scenarios differ in how deliverers are treated: as independent contractors who get paid per delivery versus
+deliverers hired as employees.
+Also, some other variables are examined: how meals are distributed among deliverers, the mean delivery preparation times, how deliveries are distributed among deliverers.
+In the context of these scenarios the total number of deliveries of the company will be calculated, also the number of participating restaurants, deliverers and customers will analyse.
 
 This is an economic problem that has both micro and macroeconomic facets.
-Microeconomic as it deals with agents that make decisions, e.g., hire deliverers, maximise the delivery companies profit, order food, become a deliverer or deside to stop being a deliverer.
-Macroeconomics, because there is a labour market, i.e., the deliverers.
+Microeconomic as it deals with agents making decisions, e.g., hire deliverers, maximise the delivery companies deliveries, order food, become a deliverer or deside to stop being a deliverer.
+
+But macroeconomic elements are also present, but not in the conventional sense.
+Macroeconomics is the study of aggregate and emerging statistical regularities in the economy~\cite{cincotti2022we}.
+The Agent Based Model, shows the results of the behavior of many individuals as a whole, which are the result of the behavior and interaction of heterogeneous agents.
+This differs from conventional macroeconomics that sees agents: with behavior of a `typical' that is `representative' or `average' individual.
 
 A model will, like in a laboratory setting, include only properties we are interested in and exclude elements like e.g., weather and physical conditions of deliverers.
+
 The tool for building the model is: NetLogo ~\cite{NetLogo2024}.
 This is a multi-agent programmable modeling environment.
 This environment has been used to create models for many sciences concerning multi-agents (from how viruses spread to how agents act in game theory~\cite{r2019agent}).
 
+The environment where multiple agents act is called a multi-agent system end the problem is called a multi-agent planning problem (from~\cite{russell2016artificial}).
 
-\subsection{Research goals}
-The main research goal is to create an Agent Based Model to compare two deliverer employment scenarios in the food delivery industry.
+\subsection{Research goals}\label{subsec:research-goals}
+This research is not of a thoroughly theoretical nature, its more of an exploratory/explanatory nature of ABM in the setting of the last mile of food delivery industry.
+
+That being said: the main research goal is to create an Agent Based Model in NetLogo to compare two deliverer employment scenarios in the food delivery industry.
 
 The two main scenarios of interest are:
 \begin{itemize}
-    \item one, where the deliverers are hired as employees
-    \item versus a scenario where deliverers are independent contractors and get paid per delivery
+    \item a scenario where the deliverers are hired as employees
+    \item a scenario where deliverers are independent contractors and get paid per delivery
 \end{itemize}
 
-During the model building and design, new-found insights will be used in deciding which variables and, if needed, which economic theories to use, and adjust the model as needed.
+% change this afterwards:
+% During the model building and design, new-found insights will be used in deciding which variables to use, and adjust the model as needed.
 
-This first part of the model will be used to find a baseline and will be used to test the model.
-This model is the simpler one, at start the certain variables to be used are the number of deliverers and the strategy for delivery distribution.
 
-The second part is based on the first, the main-difference is that the delivers are not hired but paid per delivery, if they make enough money they stay otherwise they stop.
-Interesting variables are: the amount paid per delivery, the wage they could earn in a steady job (like in te first part) and the distribution strategy of deliveries.
 
 Thus, the research goals are:
-\begin{itemize}
- \item \textbf{Building the above-mentioned model in NetLogo, creating it as a highly abstracted but still believable world.}
- \item \textbf{Finding how the profit for a delivery company varies when using independent contractors versus hiring deliverers as employees.}
-\end{itemize}
 
-Answer will be of the kind:
+\textbf{Building an Agent Bases Model in NetLogo for the fooddelivery proces, as a highly abstracted but still believable world.}
 
-time series: profits over time, averages of multiple runs
+\textbf{Finding how the number of deliveries for a delivery company varies when using independent contractors versus hiring deliverers as employees.
+ And what are the relative importance's of the models variables.}
 
 
-\todo[inline]{Write more about this \& author.}
+The model will be build incremental, more about this in the methods section.
+
+The second step is executed from the situation where deliverers are hired and thus their numbers are stable.
+Then find the effects of several variables and find settings where the model is stable.
+
+From the stable settings, determine the average deliveries per deliverer per timeunit.
+
+Given these stable settings run the model a second time but now the deliverers may leave when their individual deliveries are less
+compared to the first run.
+
+The differences are the answers to the second research goal.
+
+
+
