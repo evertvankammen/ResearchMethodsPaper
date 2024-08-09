@@ -1,9 +1,6 @@
 \section{Artefact}\label{sec:artefact}
 This section describes the created NetLogo model named `FoodDelivery'.
-The file is available inside a git repository available at GitHub~\footnote{\url{https://github.com/evertvankammen/FooddeliveryNetlogo}}
-This repository also contains Python code to automate running the model.
 
-\subsection{Conceptional model}\label{subsec:conceptional-model}
 The world that is being modelled is what is known as, the last mile in the food delivery industry.
 This term is used for the last step in the delivery of online ordered goods.
 
@@ -29,7 +26,7 @@ then the meal will be thrown away.
     \item If a customer is unhappy it will eventually stop ordering meals.
 \end{itemize}
 
-This all takes place in a city where restaurants and customers are located.
+This all takes place in a city with restaurants and customers.
 The deliverers have to cycle to the restaurant and then to the customer.
 The best route will be provided by the app the deliverers use.
 
@@ -39,41 +36,21 @@ This means they want to have happy customers and enough deliverers to keep them 
 
 This is more or less how the process works in the real world.
 
-Our model also has 3 types of agents:
+\subsection{Conceptional model}\label{subsec:conceptional-model}
+The FoodDelivery model has the same types of agents:
 -deliverers \\
 -restaurants \\
 -customers \\
 
+The delivery company itself is not modelled explicitly, they are what is called the observer.
 
-The delivery company itself is not modelled, offers a website where customers can order,
-restaurants pay the company a percentage of the delivery, they also offer means for the deliverers to
-find deliveries and the shortest route.
-
-Everything works on ticks of the clock, during 1 tick all agents execute one behavior rule.
-The order of execution among agents of one type is arbitrary.
-This is interleaved execution, no parallelism.
-
-
-deliverers:
-Start number can be set.
-The deliverers get
-
-
-restaurants:
-the start number can be set, are placed at random
-accept any orders, are open all the time,
-prepare meals, the preparation time can be set,
-after accepting a deliverer is asked.
-when the meal is ready it can be picket up.
-Restaurants will leave the system if they have not enough orders.
-
-customers:
-order distribution, peek ours breakfast, lunch and  diner, once a week.
-order from any restaurant they have no bad experience with
-the price distribution, average can be set
-they remember bad experiences for a certain time.
-If delivered stale the customer is not satisfied and will not order from the restaurant also
-it will order less food per week.
+\paragraph{Customers} will order food from a restaurant.
+Orders are not equally distributed per day, peek hours are: breakfast, lunch and diner.
+They will on average order once a week.
+The restaurant is selected at random.
+In the model the probability distribution shown in figure~\ref{fig:food_ordering_distribution} is used.
+If a meal is not delivered the customer is not satisfied and their satisfaction level is subtracted 1 point
+Customers stop ordering food if they have a satisfaction level below -1.
 
 \begin{figure}
     \centering
@@ -82,63 +59,53 @@ it will order less food per week.
     \label{fig:food_ordering_distribution}
 \end{figure}
 
+\paragraph{Restaurants} accept any order, and are open all the time.
+When an order arrives, the preparation starts.
+This preparation-time is Gaussian distributed, the mean and standard deviation can be set.
+Upon order arrival the meal can be assigned to a deliverer.
+When the meal is ready it can be picket up for a waiting time that can be set.
+After this waiting time the meal will be thrown away.
 
+Not in the current model, but what could be interesting are:
+-restaurants cannot leave the system if they have not enough orders\\
+-the freshness of the meal is not taken into account\\
 
-meals:
-meals have properties, stage: ordered , ready, in\_transit, delivered, expired
-A meal is only fresh for a time period.
-If not picked up it wil be discarded.
+\paragraph{Deliverers} are the only agents that can move.
+There are 2 possibles meals distribution strategies that can be set:
+-distribute meals equally among the deliverers\\
+-assign a meal to the closest free deliverer\\
 
+When a meal is assigned to the deliverer it will take the shortest route
+to the restaurant, wait until the meal is ready and move to the customer.
+The deliverer will lose its assigned meal if he/she does not arrive before the waiting time is over.
 
+As a design choice deliverers have no shifts, they work all the time.
+Using shifts would make the model much more complicated, this could be done in a next version.
 
+\paragraph{The world} consists op a grid of squares, some squares will be blocks of buildings and others represent the streets.
+On this grid restaurants and customers are placed at random on the building blocks.
+The delivers are at the start randomly placed on the streets, they can only move on the street patches.
 
-
-\begin{itemize}
-    \item   The world consists op a grid of squares, some squares will be blocks of buildings and others represent the streets.
-    \item   On this grid some predetermined restaurants and customers exist.
-    \item   Customers will order food at a restaurant, the restaurant will prepare the food en will ask for a deliverer.
-    \item   A deliverer will claim the delivery, move to the restaurant, pick the food up and move to the customer.
-    \item   Agents may leave the world, i.e.,choose another delivery company, when unhappy.
-    \item   Unhappiness will occur:
-    \begin{itemize}
-        \item   for customers when the food is not or too late delivered,
-        \item   for restaurants when the food is not picked up or no orders are being placed,
-        \item   for deliverers when they don't make any money.
-    \end{itemize}
-    \item    Calculating the profit for the delivery company.
-    \item    The simulation consists of discreet steps, in which all agents simultaneous can do one thing.
-    Some examples are:
-    \begin{itemize}
-        \item  move to the next square
-        \item  place an order at a restaurant
-        \item  do nothing
-        \item  decide to take an order
-    \end{itemize}
-    \item   Behavior of the agents is rule based, these have to be programmed.
-\end{itemize}
-
-
-The environment where multiple agents act is called a multi-agent system end the problem is called a multi-agent planning problem (from~\cite{russell2016artificial}).
-The research problem is actually a comparison between a system where there is one decision maker (the company assigns delivery jobs) and a system where each deliverer decide for its self (multiple decision makers).
-This research will not be of a thoroughly theoretical nature though, its more of an exploratory/explanatory nature, see what happens under some conditions and explain the correlation.
+The goal of the delivery company is not the profit instead of this their goal is to have as many deliveries as possible
 
 \subsection{Computer model}\label{subsec:computer-model}
+The world is for a large part build using the code from the Taxi Cab model.
+The streets, how the delivers move is from their model, only the traffic lights where removed.
 
+The design of the grid is show in figure~\ref{fig:grid} and figure~\ref{fig:grid closeup}
 \begin{figure}
     \centering
     \includegraphics[width=8.5cm]{sections/pics/grid}
     \caption{Fooddelivery grid}
     \label{fig:grid}
 \end{figure}
-
 \begin{figure}
     \centering
     \includegraphics[width=8.5cm]{sections/pics/grid_closeup}
     \caption{Fooddelivery grid closeup}
     \label{fig:grid closeup}
 \end{figure}
-
-
+The agents can be seen in figure~\ref{fig:agents}.
 \begin{figure}
      \centering
      \begin{subfigure}[m]{0.1\textwidth}
@@ -168,14 +135,16 @@ This research will not be of a thoroughly theoretical nature though, its more of
         \label{fig:agents}
 \end{figure}
 
+In NetLogo, everything works on ticks, during 1 tick all code in the go procedure is executed.
+During programming the programmer must deside what to do in that tick.
+This makes it difficult to program future behaviour.
 
+The order of execution of agents of one kind is arbitrary.
 
-
-
+The program is available inside a git repository available at GitHub~\footnote{\url{https://github.com/evertvankammen/FooddeliveryNetlogo}}
+This repository also contains the Python code to automate running the model with different parameters.
 
 \section{Results of simulations}\label{sec:results-of-simulations}
-
-
 Consumers order meals from restaurants they like, if a meal is delivered cold they dislike the restaurant.
 If they dont like the restaurant they will not place any orders anymore at that restaurant.
 
