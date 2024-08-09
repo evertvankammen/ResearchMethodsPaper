@@ -1,22 +1,51 @@
 \section{Artefact}\label{sec:artefact}
+This section describes the created NetLogo model named `FoodDelivery'.
+The file is available inside a git repository available at GitHub~\footnote{\url{https://github.com/evertvankammen/FooddeliveryNetlogo}}
+This repository also contains Python code to automate running the model.
 
-The model is a combination the microeconomic and macroeconomic.
+\subsection{Conceptional model}\label{subsec:conceptional-model}
+The world that is being modelled is what is known as, the last mile in the food delivery industry.
+This term is used for the last step in the delivery of online ordered goods.
 
-As it deals with processes off the small scale, e.g., there is one delivery company, one supply and demand market (i.e., the deliverers labour marker), and
-individual agents.
+Companies in the food delivery industry offer a service to three parties:
+\begin{itemize}
+    \item restaurants: they sell its food in a portal made by the delivery company.
+    \item consumers: they buy food from a restaurant using the same portal.
+    \item deliverers: they are steered by a mobile app also from the delivery company.
+\end{itemize}
 
+The steps in the food ordering and delivery proces are:
+\begin{itemize}
+    \item When a customer orders a meal, a message is sent to the restaurant.
+    \item The restaurant starts preparing the meal, this may take some time (say on average 10 minutes).
+    \item When it starts preparing, a deliverer is needed.
+    \item A deliverer can claim the delivery (or is assigned) and starts cycling towards the restaurant.
+    \item When the deliverer arrives at the restaurant it may have to wait until the meal is ready.
+    \item When the meal is ready the deliverer takes it and start driving towards the customer.
+    \item It may happen that no deliverer claims the meal, or it takes to long for the deliverer to get to the restaurant,
+then the meal will be thrown away.
+    \item If the meal gets delivered, the customer is happy
+    \item If the meal is not delivered, the customer is unhappy.
+    \item If a customer is unhappy it will eventually stop ordering meals.
+\end{itemize}
 
+This all takes place in a city where restaurants and customers are located.
+The deliverers have to cycle to the restaurant and then to the customer.
+The best route will be provided by the app the deliverers use.
 
-More macroeconomic elements could be added in future versions, e.g., unexpected events like COVID pandemic which created a peak in food ordering.
+The money for the delivery company is earned by charging the restaurants per delivery.
+The companies interest is thus to have as many deliveries as possible.
+This means they want to have happy customers and enough deliverers to keep them happy.
 
+This is more or less how the process works in the real world.
 
-The conceptional model has 3 types of agents:
-
+Our model also has 3 types of agents:
 -deliverers \\
 -restaurants \\
 -customers \\
 
-There is one orchestrator, the delivery company, offers a website where customers can order,
+
+The delivery company itself is not modelled, offers a website where customers can order,
 restaurants pay the company a percentage of the delivery, they also offer means for the deliverers to
 find deliveries and the shortest route.
 
@@ -24,9 +53,6 @@ Everything works on ticks of the clock, during 1 tick all agents execute one beh
 The order of execution among agents of one type is arbitrary.
 This is interleaved execution, no parallelism.
 
-%In the real world when ordering food, a customer will use the website from the delivery company to find a restaurant and place an order.
-%The restaurant will take the order, the app
-% Short telling how it works in the real world, Youtube
 
 deliverers:
 Start number can be set.
@@ -51,7 +77,7 @@ it will order less food per week.
 
 \begin{figure}
     \centering
-    \includegraphics[width=9cm]{sections/pics/food_ordering_distribution}
+    \includegraphics[width=8.5cm]{sections/pics/food_ordering_distribution}
     \caption{Food ordering probablities for one day}
     \label{fig:food_ordering_distribution}
 \end{figure}
@@ -96,16 +122,18 @@ The environment where multiple agents act is called a multi-agent system end the
 The research problem is actually a comparison between a system where there is one decision maker (the company assigns delivery jobs) and a system where each deliverer decide for its self (multiple decision makers).
 This research will not be of a thoroughly theoretical nature though, its more of an exploratory/explanatory nature, see what happens under some conditions and explain the correlation.
 
+\subsection{Computer model}\label{subsec:computer-model}
+
 \begin{figure}
     \centering
-    \includegraphics[width=9cm]{sections/pics/grid}
+    \includegraphics[width=8.5cm]{sections/pics/grid}
     \caption{Fooddelivery grid}
     \label{fig:grid}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=9cm]{sections/pics/grid_closeup}
+    \includegraphics[width=8.5cm]{sections/pics/grid_closeup}
     \caption{Fooddelivery grid closeup}
     \label{fig:grid closeup}
 \end{figure}
