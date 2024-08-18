@@ -1,281 +1,72 @@
+% this file contains some notes
 
-1 Formulate the research question,
-2 formulate the research design,
-3 find an instrument to collect data,
-4 select your sample,
-5 write a research proposal,
+Artefact: a ABM agent based model, models the last mile in the food delivery business with customers, restaurants and deliverers.
+The model can be configured to simulate the delivery process, in terms of the nr of agents of each type, the number of meals delivered
+over a period of time.
+It models the actual behavior of individual agents, to measure their combined effect.
 
+Context: uses an existing computer modelling environment: NetLogo, the model will run on a pc, the program can be adjusted by setting some parameters.
+It can also be run by using a python program.
+It is used to analyse a real world problem, but in a higly abstracted way, using only some key elements from th reality.
 
-Food delivery companies, like Uber Eats and Thuisbezorgd, offer a service where customers can order food from restaurants and get the order delivered at home.
-These companies get a fee per delivery and pay deliverers an hourly wage and/or pay them per delivery (commission based).
+Impact: not applicable,
 
-Lately delivery companies have had some bad publicity of being unfair and exploiting the deliverers.
-That is why in the Netherlands some companies hire them as employees with all benefits and pay an hourly wage.
-Other companies still see them as independent workers and get paid on commission.
+Stakeholders: potential users,
 
-To make a profit, delivery companies need as many of deliveries as possible, for this they need customers ordering food and for that restaurants offering food.
-The delivery company also has to make sure the ordered meals get delivered on time, customers don't want cooled down food or have to wait too long,
-for this they need enough deliverers.
-Not enough deliverers means not all orders are delivered or delivered on time, this makes restaurants and customers unhappy and may stop using their service.
-Too many deliverers, they have not enough to do and cost too much for the company when payed an hourly wage.
-Deliverers base their happiness on the distances they travel and on the wage they earn, if unhappy they may stop being a deliverer.
+Design problems:
+- take into account other users of this model, program it in a neat fashion and document
+- must reflect real delivery and agents decisions
+- it could be programmed in several maners
+- delivers a sufficient artefact.
+- endusers may want to use the model as is, or may want to change the code.
 
-To orchestrate the process of ordering food by customers, handle the orders by restaurants and deliver the prepared meals by deliverers an system is needed.
+Social context:
+-the developer creating the system
+-other users, students
 
-This system can offer different services:
-- order food from a restaurant
-- a way to devide ordered meals among deliverers
-- a way to help deliverers find a route
-- advertise a deliverer is neede for delivery
-- keep track of the deliverers on route
-- calculate commision, and a panalty for being late
-- register users: customer, restaurant or deliverer.
-- cancel a user
+Knowledge problems:
+- emperical:  run simulations, gather data
+- analytic: think about the gathered data.
+- other articles, data, economic theories
 
-Before building this system, insight is needed on how to support users.
-One could just offer a simple service and let the market decide.
-Anyone could become a user: restaurants, consumers and let deliverers decide for themselves to pickup a meal or not.
-Or regulate more, restrict the number of deliverers and destribute meals among deliverers.
-When distributing meals some selection method is needed, e.g., the nearest free deliverer to the restaurant.
+Design goal: the abm
+Knowledge goal: what are consequences of changing some strategies of agents, understanding a real world problem
 
-To gain this insight I propose to build a model using NetLogo to simulate the process of restaurants ready to take orders, customers ordering meals,
-restaurants preparing the meals, assigning the ready meals to the deliverers, the traveling of the deliverers and finally the deliverie.
-The simulation will look at profit for the company, users entering and leaving (when unsatisfied) over en period of times.
 
+Design questions
+-Improve- the knowledge about: effects of deliverer employment strategies in the food deliveries last mile
+-by- simulating the strategies in this setting with an ABM in NetLogo with only some key properties
+-such that-
+the total number of prepared meals can be calculated after some time given a strategy,
+-in order to- give an explanation why companies favor a certain strategy.
 
-create models
+Knowledge questions:
+Empirical questions: observations
+Analytical questions: reasoning
 
-describe the model and describe the build process
+What are the key properties of the agents?
+What are the effects of these properties?
 
-use the model to investigate 2 scenarios.
+The context: the food deliveries last mile, with customers, restaurants and deliverers and 1 company.
 
+In de tekst:
+vergelijk de agents met die uit de echte wereld, met verschillen/overeenkomsten
 
+engineering cycle:
+->  -Design cycle
+|     ->    1. problem investigation: -Improve the knowledge about: effects of deliverer employment strategies in the food deliveries last mile
+|     |     2: treatment design: the artifact, the abm model
+|     |<-   3: treatment validation: testing the model, run it with some settings, are the results expected?
+|   -Implementation
+|<- -Evaluation
 
-Paper has 2 parts
+The context of the artefact: a researcher running the simulation on its pc, setting parameters, changing code, running it with python
 
-Research consists of:
+Requirements, should simulate key elements of the real world.
+Restricted to the key elements and eliminate other factors
+\todo: add documents to the python projects, with requirements.
 
-1: The model, simulation a real world event. design cycle
+The stake holders: decision makers at the food delivery companies, other researchers interested in using ABM.
 
-2: The model is tested and used, presents the results. empirical cycle
+Describe the validation of the artifact: average orders per week, do get all deliverers get a turn, does no driver get stuck.
 
-Applied research
-
-no purposefully bias
-no chery picking
-no subjectivity
-must be scientific
-1 The research was conducted in a controlled environment
-2 Validate employed methods, justify application
-3 It is systematic
-4 Must be repeatable
-5 The conclusions must be based on observations and information
-6 The research method must be able to survive critical review
-
-Classification
-
-Descriptive research aims to get an overview of the current situation.
-
-Correlational research aims to find associations between observations: if
-the value of one variable increases, does the value of another variable
-increase at the same time?
-
-In explanatory research the aim is not to only find an association, but also
-to find an explanation for the observed association. Finding such an
-explanation is not always trivial, as we will demonstrate in a moment.
-
-Exploratory research aims to assess a situation. Often it involves
-research areas lacking extensive existing knowledge
-
-Studies can combine exploratory, explanatory, correlational and
-descriptive research, and this is even recommended.
-
-Theorie before: profit maximisation, how wil agents react, must be determined before,
-theory of agents behaoviour
-result adjusted theory
-
-
-theories serve to describe, explain and predict how
-the artefact will interact with the intended context.
-
-The context for using the artefact: a researcher who may use the netlogo model and adjust it to its needs.
-The researcher wil download the model, open it in NetLogo, change some settings, run it on a computer, adjust it to by changing the code.
-It is a model based on some common sense assumptions and multiple agents behavior described in the literature, that may be adjusted or made more elaborate.
-
-The inpact of this research is low, it could though give some ideas about how to pay deliverers (a wage or per delivery)
-
-The model could be made more advanced, e.g. including sickleafs, holidays, maybe include some game theory.
-
-Stakeholders: other ai researchers or economists, document teh model
-
-May solve problems in the real world
-
-Design problems => Design questions -> design goals => create the artefact
-Knowledge problems => knowledge questions (questions about the artefact, the world, and the artefact within the world) -> knowledge goals  to answer the goals build the artefact
-- empirical knowledge questions, which require data to be solved
-- analytical knowledge questions, which require reasoning to be solved
-
-the design questions are influenced by knowledge questions
-
-questions are more specific then problems
-Normally, problems are defined first and questions
-
-knowledge questions: empirical from data, after running the simulations
-analytical questions:  think of how the agents could act, what are their behavior rules. descriptive as well as explanatory
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Background}
-The pickup and delivery problem is a well known real world problem.
-In this age, online shopping has become a mayor way of customer expenditure.
-But all these purchases have to be delivered to the customers doorsteps.
-This causes a lot of traffic and movements of vans and bicycles through the streets.
-
-For the delivery people it is key to make the deliveries as efficient as possible.
-This saves time and energy, which is beneficial for their profit and for the environment.
-
-Efficiency means to find a short route between a pickup point and delivery point.
-It may also mean to have a delivery route in which several parcels can be delivered in a row and finding the shortest total distance.
-A common constraint is to pick up a parcel on time and deliver it before a due time.
-But things can go wrong on the way, street works, road congestions these may slow down deliveries.
-
-The pickup and delivery problem has been studied alot.
-
-My proposal is to study some of the behavior of delivery people in the situation where they can enter or leave the market.
-This is often the case in reality, drivers are mostly independent subcontractors when working for companies like Uber or PostNl
-Once they are drivers they want to make a profit and find efficient routes between pickup points and deliveries.
-
-If there are to many drivers the profit will be lower per driver, but if there are not enough maybe not all parcels can be delivered
-
-If drivers can not make a profit they quit.
-
-The goal is finding an optimal amount of drivers for the market and a way for drivers to find an optimal route.
-
-For this an experiment will be build in NetLogo.
-This will consist of a grid of roads, pickup points, random delivery points and agents representing drivers.
-Together with a set of rules series of runs will be executed with different settings.
-Rules can be:
--only one driver at a time at pickup and delivery points,
--a driver can
-
-What will happen if there are no regulations and the market has full control, and what if a maximum amount of drivers is allowed.
-- every agent maximises its own profit
-- a supervisor maximises total profit
-
-Model:
-delivery guys
-restaurants
-customers.
-
-There is one delivery company who has an app that deliverers, customers and restaurants can use.
-Any person can become a deliverer by installing an app and make an account.
-This has an analogy with companies like Uber.
-If they don't make any money they will leave.
-Any restaurant can use the app, but if they are not satisfied they will stop using it.
-Any person can order food by using the app, but if not satisfied they will leave.
-The deliverer company makes money by charging a fee per delivery for the restaurant and the customer.
-It pays a part of the fee to the deliverer, but only when delivered on time.
-But if an order is delivered to late they don't get paid, and the restaurant may stop using the app.
-If a delivery is not delivered to a customer they will stop using the app, also the restaurant will stop using the app.
-
-The app company may hava a strategy to leave control to the market, only offer the app.
-Orders are assigned to the first deliverer who shows up.
-Or they may intervene, limit the number of deliverers, and devide orders among the delivers via a system.
-
-
-
-
-
-
-
-If to many drivers they will leave, if not enough restaurants an customers will become unsatisfied.
-
-
-% curiosity driven research
-
-Develop app for food delivery what features should be include to maximise profit.
-Thinks like allow a total free market or impose rules to regulate.
-
-
-
-\section{Research questions}
-
-\begin{description}
-    \item[RQ1.] What are key variables (e.g., the number of deliverers or the order distribution method), in maximising the profit for a food delivery app?
-    \item[RQ2.] What are the relative effects of changing these variables? Can some optimal settings be found?
-\end{description}
-
-\section{Research methods}
-The research method consists of buiding a multi-agent model in the NetLogo application.
-First the rules in this multi agent model have to be found and decided.
-The model needs rules for deliverers to deside when to accept a pickup, based on the distance to the restaurant and from the restaurant to the delivery point.
-If the distance is too long they may deside not to pick it up.
-Other rules are who gets the order, it could be that who arrives first gets the order.
-
-\subsection{Design}
--address a problem in the world: how to manage the process of deliveries with 3 types of users (deliverers, restaurants, customers).
--endusers delivery companies, other researchers
--
-This including building the model in NetLogo.
-It involves learning the programming languages, search for existing models that can be used.
-It also involves finding behavior rules for the agents and variables that can be set.
-
-Design questions: how to program behavior of the agents, how to model an abstraction of the world (roads, restaurants, customers, deliverers),
-which variables can a user of the model set,
-
-Knowledge questions: what methods do existing delivery companies use.
-What methods exist to determine the shortest distance between 2 points.
-What rules may agents, in the context of food delivery, have to base their behavior on.
-What are the effects of setting variables by the user.
-
-design goal: create a model that simulates agents behavior
-knowledge goal: gain knowledge about agents behavior
-
-instrument design, netlogo model is an instrument
-\subsection{Procedure}
-
-\subsection{Data analysis}
-After the model is build, several tests have to be done.
-A test
-
-\section{Time schedule}
-
-
-\section{Risk analysis}
-
-
-\bibliography{bibliography}
-
-
-\end{document}
-
-
-
-
-Firstly, economic models have been conceived of as idealized entities.
-From this perspective economists are seen to make use of stylized, simplifying,
-and even distorting assumptions as regards the real economies in their modelling
-activities
-
-Secondly, it has been suggested that models in economics are various
-kinds of purpose built constructions: some are considered to have representational
-status, others are considered as purely fictional or artificial entities.
-
-
-
-Idealization is typically potrayed as a process that starts
-with the complicated world with the aim of simplifying it and isolating a small part
-of it for model representation;
-
-The basic idea that philosophers of economics have derived from Mill is to conceive
-of models as abstracting causally relevant capacities or factors of the real world for
-the purpose of working out deductively what effects those few isolated capacities
