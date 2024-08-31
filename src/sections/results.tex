@@ -1,171 +1,122 @@
 \section{Results of simulations}\label{sec:results-of-simulations}
-First, a baseline had to be found in which the system was stable.
-That is finding settings where almost no meals were discarded, and no customers would leave.
-Several automated runs were executed for one day ( 25 * 60 = 1440 tick).
+First, a baseline had to be found in which the system is more or less stable.
+That is finding settings where almost no meals are discarded, and not many customers, and restaurants will leave.
 
-The variables, with the default values, are:
+Several automated runs were executed for one week ( 24 * 60 * 7 = 10.080 ticks) of simulation time.
 
-\begin{center}
-    \begin{tabular}{ |c|c| }
-        \hline
-        variable              & type \\
-        \hline
-        \hline
-        number-of-restaurants & int  \\
-        \hline
-        number-of-customers   & int  \\
-        \hline
-        number-of-deliverers  & int  \\
-        \hline
-        prepair\_time\_mean   & int  \\
-        \hline
-        wait\_for\_deliverer  & int  \\
-        \hline
-    \end{tabular}
-\end{center}
-
-First, some runs with 25 and 50 deliverers were tried.
-The results from figures ~\ref{fig:examples 25 deliverers} and ~\ref{fig:examples 50 deliverers} show that no differences between
-25 and 50 deliverers.
-The delivered meals are indicated with the orange line.
-The reason for this is that the wait\_for\_deliverer is too short.
-The deliverer has to drive towards the restaurant, and if it takes too long, the meal is discarded.
-
-\begin{center}
-    \begin{figure*}
-        \centering
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run1/week_nd_1_food_ordering_distribution_500_10_25_30}
-            \caption{example 1}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run1/week_nd_2_food_ordering_distribution_500_10_25_30}
-            \caption{example 2}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run1/week_nd_3_food_ordering_distribution_500_10_25_30}
-            \caption{example 3}
-        \end{subfigure}
-        \caption{Examples 25 deliverers}
-        \label{fig:examples 25 deliverers}
-    \end{figure*}
-\end{center}
-\begin{center}
-
-    \begin{figure*}
-        \centering
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run2/week_nd_1_food_ordering_distribution_500_10_50_30}
-            \caption{example 1}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run2/week_nd_2_food_ordering_distribution_500_10_50_30}
-            \caption{example 2}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run2/week_nd_3_food_ordering_distribution_500_10_50_30}
-            \caption{example 3}
-        \end{subfigure}
-        \caption{Examples 50 deliverers}
-        \label{fig:examples 50 deliverers}
-    \end{figure*}
-\end{center}
-
-For the next run, the delivery times were longer.
-The results are shown in figure~\ref{fig:examples 25 deliverers different wait time} and ~\ref{fig:examples 50 deliverers different wait time}
-There is a difference: the longer the allowed wait time, the more meals are delivered and not discarded.
-
-\begin{center}
-    \begin{figure*}
-        \centering
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run3/week_nd_1_food_ordering_distribution_500_10_25_30}
-            \caption{30 min wait time}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run3/week_nd_2_food_ordering_distribution_500_10_25_60}
-            \caption{60 min wait time}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run3/week_nd_3_food_ordering_distribution_500_10_25_90}
-            \caption{90 min wait time}
-        \end{subfigure}
-        \caption{Examples 25 deliverers}
-        \label{fig:examples 25 deliverers different wait time}
-    \end{figure*}
-\end{center}
-\begin{center}
-
-    \begin{figure*}
-        \centering
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run4/week_nd_1_food_ordering_distribution_500_10_50_30}
-            \caption{30 min wait time}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run4/week_nd_2_food_ordering_distribution_500_10_50_60}
-            \caption{60 min wait time}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[m]{0.30\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{sections/run4/week_nd_3_food_ordering_distribution_500_10_50_90}
-            \caption{90 min wait time}
-        \end{subfigure}
-        \caption{Examples 50 deliverers}
-        \label{fig:examples 50 deliverers different wait time}
-    \end{figure*}
-\end{center}
-
-We can tell from these results that the longer the waiting time, the more deliveries are made,
-Again, there is not much difference between the number of deliverers.
-
-To find out what the effect is of the number of deliverers, the simulation was run for a waiting time of 60 and 90 minutes,
-and 10 to 60 deliverers.
-The result of these simulations, for a simulated week, are:
-
+The variables and default settings are:
 \begin{center}
     \begin{tabular}{ |c|c|c| }
         \hline
-        waittime       & 60   & 90   \\
-        nr. deliverers &      &      \\
+        variables              & type & value \\
         \hline
         \hline
-        10             & 63\% & 69\% \\
+        number-of-restaurants & int & 10 \\
         \hline
-        20             & 75\% & 88\% \\
+        max-number-of-customers  & int & 500  \\
         \hline
-        30             & 83\% & 96\% \\
+        number-of-deliverers  & int & 15  \\
         \hline
-        40             & 87\% & 99\% \\
+        prepair\_time\_mean   & int & 15 \\
         \hline
-        50             & 89\% & 97\% \\
+        wait\_for\_deliverer  & int & 30 \\
         \hline
-        60             & 80\% & 99\% \\
+        deliverers\_may\_quit  & boolean & false  \\
+        \hline
+        radius\_allowed  & int & 64\\
+        (max distance between &  &\\
+        customer and restaurant)  & &\\
         \hline
     \end{tabular}
 \end{center}
 
+First, some runs with 15, 25 and 50 deliverers were executed.
+This to find the effects of the number of delivers on the delivered (orange line) and discarded meals (green line).
+
+The total number of orders is by the way correct, there are 500 customers, each customer on average orders once a week,
+so around 500 orders in a week is expected.
+
+The results from figures ~\ref{fig:examples 1 2 3} show that no big differences exists between 10, 25 and 50 deliverers.
+
+\begin{center}
+    \begin{figure*}
+        \centering
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run1/week_ed_food_ordering_distribution_500_10_10_30}
+            \caption{example 1, 10 deliverers}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run1/week_ed_food_ordering_distribution_500_10_25_30}
+            \caption{example 2, 25 deliverers}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run1/week_ed_food_ordering_distribution_500_10_50_30}
+            \caption{example 3, 50 deliverers}
+        \end{subfigure}
+        \caption{Examples waiting time 30, radius 64 }
+        \label{fig:examples 1 2 3}
+    \end{figure*}
+\end{center}
+
+The reason for this is that the distances a driver has to make are too long, or the discarding waiting time is too short.
+The deliverer has to drive towards the restaurant, and if it takes too long, the meal gets discarded.
+Something has to be done about the other variables.
+
+For the next set of runs, the wait times were set longer (60 minutes) and the radius allowed made shorter (32 patches).
+This way drivers have more time to make it to the restaurant.
+The distances between restaurants and customers are shorter because of the lower radius, thus deliverers are able to deliver faster and are sooner available for the next order.
+
+The results are shown in figure~\ref{fig:examples 4 5 6}.
+
+\begin{center}
+
+    \begin{figure*}
+        \centering
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run2/week_nm_rad_32food_ordering_distribution_500_10_10_60}
+            \caption{example 4, 10 deliverers}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run2/week_nm_rad_32food_ordering_distribution_500_10_25_60}
+            \caption{example 5, 25 deliverers}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[m]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{sections/run2/week_nm_rad_32food_ordering_distribution_500_10_50_60}
+            \caption{example 6, 50 deliverers}
+        \end{subfigure}
+        \caption{Examples waiting time 60, radius 32 }
+        \label{fig:examples 4 5 6}
+    \end{figure*}
+\end{center}
+
+There is a difference now, many more of the meals are delivered.
+
+To find out how many deliverers to hire, simulations where 3 times repeated with numbers of deliverers from 10 to 60.
+
+The result of these simulations are depicted in  figure~\ref{fig:multiruns}.
+
+\begin{figure*}
+\centering
+\includegraphics[width=12cm]{sections/pics/Afbeelding1}
+\caption{meals delivered in 10 weeks, 3 runs per numbers of deliverers, waiting time 60 and radius 32 }
+\label{fig:multiruns}
+\end{figure*}
+
+The numbers are the same with 20 deliverers or more.
+
 With this information, the baseline is set.
-The best result would be a wait time of 90 minutes and 30 deliverers; more deliverers would have the same result.
+
+The best result would be expected at a wait time of 60 minutes and 20 deliverers; more deliverers will not improve much.
 
 \subsection{Model variant 1}\label{subsec:model-variant-1}
 The baseline is determined with the next settings:
@@ -179,90 +130,77 @@ The baseline is determined with the next settings:
         \hline
         number-of-customers   & int  & 500     \\
         \hline
-        number-of-deliverers  & int  & 30      \\
+        number-of-deliverers  & int  & 20      \\
         \hline
         prepair\_time\_mean   & int  & 15      \\
         \hline
-        wait\_for\_deliverer  & int  & 90      \\
+        wait\_for\_deliverer  & int  & 60      \\
         \hline
     \end{tabular}
 \end{center}
 
-Now, simulations will be run over a much longer period, and the number of meals delivered per deliverer will also be measured.
-
-On six runs of simulated ten weeks, the results are:
+On three runs of simulated ten weeks, the results are:
 
 \begin{center}
-    \begin{tabular}{ |c|c|c|c| }
+    \begin{tabular}{ |c|c|c|c|c| }
         \hline
-        meals & meals & meals & percentage \\
-        ordered & delivered & discarded & delivered \\
-        \hline
-        \hline
-        4857          & 4798           & 58             & 0.98                 \\
-        \hline
-        4839          & 4755           & 81             & 0.98                 \\
-        \hline
-        4958          & 4630           & 327             & 0.93                 \\
-        \hline
-        4773          & 4645           & 126             & 0.97                 \\
-        \hline
-        4895          & 4562           & 330             & 0.93                 \\
-        \hline
-        4800          & 4756           & 41             & 0.99                 \\
+        meals & meals &  percentage  &  rest. & cust.  \\
+        ordered & delivered & delivered &  left  & left \\
         \hline
         \hline
-        4853          & 4691           & 160             & 0.96 \\
+        4873          & 4292           & 0.88             & 9  & 488                \\
+        \hline
+        4916          & 4140           & 0.84             & 9  & 479               \\
+        \hline
+        4721          & 4176           & 0.88            & 9   & 475              \\
+        \hline
+        \hline
+        4836          & 4202           & 0.86             & 9 & 480  \\
         \hline
     \end{tabular}
 \end{center}
 
-A deliverer delivers an average of 4691 meals per day, or (10 * 7 * 24 + 60 * 30) = 2.23 meals.
+A deliverer delivers an average 4836/(20*10)= 24.18 meals per week.
+
 
 \subsection{Model variant 2}\label{subsec:model-variant-2}
 For the second variant, deliverers may leave if they don't make enough money; in this setting, only the number of deliveries is counted for simplicity.
 
-In the previous section, a deliverer may have heard that a deliverer can deliver 2.34 meals per day or 15.63 per week.
+In the previous section, a deliverer may have heard that a deliverer can deliver 24.18 per week.
 
-In this model, if a deliverer delivers less than this number, rounded to 15, in a week, they will stop delivering.
-The delivery company knows it can deliver 4691 in 10 weeks and expects this from this system.
+In this variant, if a deliverer delivers less than this number, rounded to 24, in a week, they will stop delivering.
+The delivery company knows it can deliver 4836 in 10 weeks and expects this also in this system.
 
 The simulation is rerun for ten weeks.
 
 The following table contains the results:
 \begin{center}
-    \begin{tabular}{ |c|c|c|c|c| }
+    \begin{tabular}{ |c|c|c|c|c|c| }
         \hline
-        meals & meals & meals & percentage & remaining \\
-        ordered & delivered & discarded & delivered & deliverers \\
-        \hline
-        \hline
-        4724          & 4231           & 491             & 0.89  & 18               \\
-        \hline
-        4861          & 4231           & 573             & 0.88  & 19               \\
-        \hline
-        4913          & 4386           & 524             & 0.89  & 19               \\
-        \hline
-        4773          & 3880           & 832             & 0.82  & 14               \\
-        \hline
-        4712          & 4508           & 406             & 0.91  & 22               \\
-        \hline
-        4917          & 4266           & 595             & 0.87  & 19               \\
+        meals   & meals     &  percentage  & del. &  rest. & cust. \\
+        ordered & delivered & delivered    & left &  left  & left  \\
         \hline
         \hline
-        4831          & 4250           & 570             & 0.88  & 19               \\
+        4511          & 3483           & 0.77    & 11         & 8  & 429                \\
+        \hline
+        4557          & 3468           & 0.76    & 11         & 7  & 410               \\
+        \hline
+        4530          & 3667           & 0.80    & 12         & 8   & 446              \\
+        \hline
+        \hline
+        4532          & 3539           & 0.78    & 11         & 8  & 428  \\
         \hline
     \end{tabular}
 \end{center}
 
-The average number of meals delivered in 10 weeks is much lower, but the number of remaining deliverers is also much lower.
+The number of deliverers has dropped 45\% but the number of delivered meals has dropped with 16\%
 
 What is interesting is to see what the average number of meals delivered per deliverer is over the weeks; this is shown in figure~\ref{fig:average}.
 
 \begin{figure*}
 \centering
-\includegraphics[width=12cm]{sections/pics/average}
-\caption{NetLogo  graph containing average deliveries per deliverer per week.}
+\includegraphics[width=12cm]{sections/pics/img}
+\caption{NetLogo graph containing average deliveries per deliverer per week.}
 \label{fig:average}
 \end{figure*}
 
